@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Imagem de Fundo</title>
+  <style>
+    body {
+      background-image: url('https://dl.dropboxusercontent.com/scl/fi/hzbjkc6cxjqfyyq6fkbr6/1750329771798.jpeg?rlkey=6vlyp5vk9beknpsg213j7xl4j&dl=0');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    #texto {
+      width: 50%;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Banir Números</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #banir-numeros {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #banir-form {
+      text-align: center;
+    }
+    #banir-form label {
+      font-size: 24px;
+      color: #000;
+      margin-bottom: 10px;
+      display: block;
+    }
+    #banir-form input[type="text"] {
+      width: 500px;
+      height: 40px;
+      font-size: 24px;
+      padding: 10px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      color: #000;
+      text-align: center;
+    }
+    #banir-btn {
+      width: 500px;
+      height: 40px;
+      font-size: 24px;
+      background-color: #fff;
+      border: 1px solid #000;
+      border-radius: 5px;
+      color: #000;
+      cursor: pointer;
+    }
+    #banir-btn:hover {
+      background-color: #000;
+      color: #fff;
+    }
+    #mensagem-sucesso {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #mensagem-sucesso p {
+      font-size: 36px;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="banir-numeros">
+    <form id="banir-form">
+      <label for="numero-banir">Painel Spam:</label>
+      <input type="text" id="numero-banir" name="numero-banir" placeholder="+xx xx xxxxxxxxx ">
+      <button id="banir-btn" type="button">Banir</button>
+    </form>
+  </div>
+  <div id="mensagem-sucesso">
+    <p id="mensagem-sucesso-texto"></p>
+  </div>
+
+  <script>
+    // Função para verificar se o número é válido
+    function verificarNumero(numero) {
+      const regex = /^\+[0-9]{2} [0-9]{2} [0-9]{8,9}$/;
+      return regex.test(numero);
+    }
+
+    // Função para banir número
+    function banirNumero(numero) {
+      // lógica para banir o número aqui
+      console.log(`Número ${numero} banido com sucesso!`);
+      mostrarMensagemSucesso(`o numero ${numero} foi enviado para lista do auto ban, espere algumas horas!`);
+    }
+
+    // Função para mostrar mensagem de sucesso
+    function mostrarMensagemSucesso(mensagem) {
+      const mensagemSucesso = document.getElementById('mensagem-sucesso');
+      const mensagemSucessoTexto = document.getElementById('mensagem-sucesso-texto');
+      mensagemSucessoTexto.textContent = mensagem;
+      mensagemSucesso.style.display = 'flex';
+      setTimeout(() => {
+        mensagemSucesso.style.display = 'none';
+      }, 3000);
+    }
+
+    document.getElementById('banir-btn').addEventListener('click', () => {
+      const numero = document.getElementById('numero-banir').value;
+      if (verificarNumero(numero)) {
+        banirNumero(numero);
+      } else {
+        alert('Numero esta incorreto, forma certa +55 71 92793089');
+      }
+    });
+  </script>
+</body>
+</html>
