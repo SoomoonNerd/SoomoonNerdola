@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Nahida Bot</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Poppins',sans-serif;
+  color:#e6fff2;
+  background:url("https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3") center/cover fixed no-repeat;
+}
+
+/* Banner */
+.banner{
+  height:320px;
+  background:url("https://files.catbox.moe/zm8r7c.png") center/cover no-repeat;
+  position:relative;
+}
+
+/* Avatar */
+.avatar{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  border:5px solid #1ed760;
+  position:absolute;
+  bottom:-90px;
+  left:50%;
+  transform:translateX(-50%);
+  background:url("https://files.catbox.moe/ayu8bp.png") center/cover no-repeat;
+  box-shadow:0 0 40px rgba(30,215,96,.7);
+}
+
+/* Container */
+.container{
+  max-width:900px;
+  margin:140px auto 90px;
+  padding:20px;
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  text-align:center;
+  font-size:46px;
+  color:#1ed760;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:18px;
+  color:#b6e9cf;
+  margin-bottom:50px;
+}
+
+/* Info box */
+.info-box{
+  background:rgba(20,44,34,.95);
+  border-radius:18px;
+  margin-bottom:22px;
+  overflow:hidden;
+  border:1px solid #1ed76055;
+}
+
+.info-top{height:5px;background:#1ed760}
+.info-content{padding:24px 28px}
+
+.info-title{font-size:15px;color:#7fffd4;margin-bottom:8px}
+.info-value{font-size:21px;font-weight:500}
+
+.status-on{color:#6affb7}
+.status-off{color:#ff6a6a}
+
+/* Aluguel */
+.rent-section{
+  margin-top:70px;
+  padding:35px;
+  background:rgba(10,30,22,.95);
+  border-radius:24px;
+  border:2px dashed #1ed76099;
+}
+
+.rent-title{
+  text-align:center;
+  font-size:28px;
+  color:#1ed760;
+  margin-bottom:25px;
+  font-family:'Playfair Display',serif;
+}
+
+.rent-item{
+  text-align:center;
+  font-size:19px;
+  margin-bottom:14px;
+}
+
+/* Botão */
+.whatsapp-btn{
+  display:block;
+  margin:60px auto 0;
+  padding:20px 52px;
+  font-size:21px;
+  color:#0f1f17;
+  background:linear-gradient(135deg,#1ed760,#7affc1);
+  border-radius:60px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 0 40px rgba(30,215,96,.7);
+  transition:.3s;
+}
+
+.whatsapp-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 55px rgba(30,215,96,1);
+}
+
+footer{
+  margin-top:80px;
+  text-align:center;
+  font-size:14px;
+  color:#9bcbb4;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+  <div class="avatar"></div>
+</div>
+
+<div class="container">
+  <h1>Nahida Bot</h1>
+  <p class="subtitle">Developer: SoomoonIntello</p>
+
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Prefixo</div><div class="info-value">!</div></div></div>
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Biblioteca</div><div class="info-value">Baileys</div></div></div>
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Linguagem</div><div class="info-value">JavaScript</div></div></div>
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Sistema Operacional</div><div class="info-value">Linux</div></div></div>
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Versão do Bot</div><div class="info-value">4.1.0</div></div></div>
+
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Ping</div><div class="info-value"><span id="ping">--</span> ms</div></div></div>
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Velocidade de Resposta</div><div class="info-value"><span id="response">--</span> s</div></div></div>
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Status</div><div class="info-value" id="status"></div></div></div>
+
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">RAM Total</div><div class="info-value">62.53 GB</div></div></div>
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">RAM em Uso</div><div class="info-value"><span id="ram"></span> GB</div></div></div>
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Total de Comandos</div><div class="info-value">394</div></div></div>
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Grupos Ativos</div><div class="info-value">39</div></div></div>
+  <div class="info-box"><div class="info-top"></div><div class="info-content"><div class="info-title">Usuários Ativos</div><div class="info-value"><span id="users"></span></div></div></div>
+
+  <div class="rent-section">
+    <div class="rent-title">Planos de Aluguel</div>
+    <div class="rent-item">Plano 1 Mês — R$ 5,50 / mês</div>
+    <div class="rent-item">Plano 2 Meses — R$ 11,20 / mês</div>
+    <div class="rent-item">Plano 3 Meses — R$ 32,50 / mês</div>
+  </div>
+
+  <a class="whatsapp-btn" href="https://wa.me/5571987244913" target="_blank">Ver o Bot</a>
+
+  <footer>Nahida Bot © 2026</footer>
+</div>
+
+<script>
+function rand(min,max){return Math.floor(Math.random()*(max-min+1))+min}
+
+const BASE_USERS = rand(320,350)
+let dynamicUsers = rand(1,8)
+
+setInterval(()=>{
+  document.getElementById("ping").innerText = rand(10,35)
+  document.getElementById("response").innerText = (Math.random()*0.5+0.1).toFixed(3)
+  document.getElementById("ram").innerText = (Math.random()*4+2).toFixed(2)
+
+  const now = new Date()
+  document.getElementById("status").innerHTML =
+    Math.random() > 0.08
+    ? '<span class="status-on">● Online</span>'
+    : '<span class="status-off">● Offline</span>'
+},1500)
+
+setInterval(()=>{
+  dynamicUsers = rand(1,12)
+  document.getElementById("users").innerText = `${BASE_USERS} + ${dynamicUsers}`
+},30000)
+
+document.getElementById("users").innerText = `${BASE_USERS} + ${dynamicUsers}`
+</script>
+
+</body>
+</html>
